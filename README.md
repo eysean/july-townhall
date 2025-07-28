@@ -1,9 +1,26 @@
-# Your Project's Title...
-Your project's description...
+# Adobe Edge Delivery Services (EDS) Demo
+## Overview:
+For this month’s townhall, we’re showcasing a live demo of Adobe Edge Delivery Services (EDS) to highlight its capabilities and potential impact across our digital experience initiatives. This project serves as a proof-of-concept (POC) to demonstrate how EDS can enable faster, more scalable, and cost-effective web experiences through Git-based workflows and edge-optimized content delivery.
+
+## Purpose:
+To educate teams on the key differences between traditional AEM Sites and EDS, and to illustrate how EDS can streamline site creation, accelerate load times, and support modern, decoupled web architectures.
+
+## Key Features Demonstrated:
+GitHub-driven authoring and publishing workflow
+Ultra-fast page loads powered by edge caching
+Universal Editor and block-based page construction
+Integration with Universal Editor for author-friendly content updates
+Lightweight deployment without traditional AEM stacks
+
+## Business Value:
+This demo helps stakeholders understand how EDS can be leveraged for campaign sites, microsites, and localized content initiatives with minimal infrastructure overhead and significantly reduced time to market.
+
+## What’s Next:
+Based on the feedback from this demo, we’ll evaluate opportunities for broader adoption across targeted site types and establish a framework for scaling EDS projects in alignment with our digital roadmap.
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--july-townhall--eysean.aem.page/
+- Live: https://main--july-townhall--eysean.aem.live/
 
 ## Documentation
 
