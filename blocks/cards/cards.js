@@ -1,8 +1,8 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, wrapTextNodes } from '../../scripts/aem.js';
 import { renderBlock } from '../../scripts/faintly.js';
 
 function transformCardColumn(context) {
-  const col = context.card;
+  const col = wrapTextNodes(context.card);
 
   const picture = col.querySelector('picture');
 
