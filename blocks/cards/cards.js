@@ -2,7 +2,7 @@ import { createOptimizedPicture, wrapTextNodes } from '../../scripts/aem.js';
 import { renderBlock } from '../../scripts/faintly.js';
 
 function transformCardColumn(context) {
-  const col = wrapTextNodes(context.card);
+  const col = context.card;
 
   const picture = col.querySelector('picture');
 
@@ -18,7 +18,7 @@ function transformCardColumn(context) {
 }
 
 export default async function decorate(block) {
-  await renderBlock(block, {
+  await renderBlock(wrapTextNodes(block), {
     transformCardColumn,
   });
 }
