@@ -18,7 +18,7 @@ function transformCardColumn(context) {
 }
 
 export default async function decorate(block) {
-  await renderBlock(wrapTextNodes(block), {
+  await renderBlock(block, {
     transformCardColumn,
   });
 }
