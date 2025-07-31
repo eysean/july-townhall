@@ -1,4 +1,4 @@
-import { createOptimizedPicture, wrapTextNodes } from '../../scripts/aem.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
 import { renderBlock } from '../../scripts/faintly.js';
 
 function transformCardColumn(context) {
