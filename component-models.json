@@ -216,7 +216,7 @@
     ]
   },
   {
-    "id": "simplebock",
+    "id": "simpleblock",
     "fields": [
       {
         "component": "richtext",
