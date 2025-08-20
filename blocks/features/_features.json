@@ -16,6 +16,21 @@
       }
     },
     {
+      "title": "Features Header",
+      "id": "features-header",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Features Header",
+              "model": "features-header"
+            }
+          }
+        }
+      }
+    },
+    {
       "title": "Feature Item",
       "id": "feature-item",
       "plugins": {
