@@ -216,18 +216,6 @@
     ]
   },
   {
-    "id": "simpleblock",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "teaser",
     "fields": [
       {
