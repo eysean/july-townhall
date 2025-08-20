@@ -29,6 +29,14 @@ This will render as:
 - A description paragraph
 - A list of features with blue checkmark icons
 
+## Implementation
+
+This block uses standard DOM manipulation without external templating libraries:
+- Processes the first row as header content
+- Automatically detects eyebrow text (short, uppercase paragraphs)
+- Creates feature items with checkmark icons for subsequent rows
+- Follows the same patterns as other blocks in this project (columns, cards)
+
 ## Styling
 
 The block includes responsive CSS with the following features:
@@ -46,11 +54,10 @@ You can customize the appearance by modifying the CSS custom properties:
 
 ## Files
 
-- `features.js` - JavaScript block logic using Faintly templating
-- `features.html` - Faintly template for rendering
+- `features.js` - JavaScript block logic using standard DOM manipulation
 - `features.css` - Styling for the block
 - `_features.json` - Block configuration for AEM Edge Delivery
 
 ## Demo
 
-See `features-demo.html` for a working example of the block.
+See `features-test.html` for a working example of the block.

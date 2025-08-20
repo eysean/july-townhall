@@ -1,64 +1,74 @@
-import { renderBlock } from '../../scripts/faintly.js';
+export default function decorate(block) {
+  // Get all rows from the block
+  const rows = [...block.children];
 
-/**
- * Transform feature item with proper styling and icon
- * @param {Object} context - The rendering context
- * @returns {HTMLElement} The transformed feature element
- */
-function transformFeatureItem(context) {
-  const { col } = context;
+  if (rows.length === 0) return;
 
-  // Create the feature item structure
-  const featureItem = document.createElement('div');
-  featureItem.className = 'features-item';
+  // Create the main container
+  const featuresContent = document.createElement('div');
+  featuresContent.classList.add('features-content');
 
-  // Add checkmark icon
-  const icon = document.createElement('div');
-  icon.className = 'features-icon';
-  icon.innerHTML = '✓'; // Using checkmark character, can be replaced with SVG
+  // Process the first row as header (eyebrow, heading, description)
+  if (rows.length > 0) {
+    const headerRow = rows[0];
+    const headerDiv = document.createElement('div');
+    headerDiv.classList.add('features-header');
 
-  // Add feature text
-  const text = document.createElement('div');
-  text.className = 'features-text';
-  text.innerHTML = col.innerHTML;
+    // Move all content from the first row to header
+    while (headerRow.firstElementChild) {
+      const col = headerRow.firstElementChild;
 
-  featureItem.appendChild(icon);
-  featureItem.appendChild(text);
+      // Check if first paragraph looks like eyebrow text (short, uppercase)
+      const firstP = col.querySelector('p:first-child');
+      if (firstP) {
+        const text = firstP.textContent.trim();
+        if (text.length < 50 && text === text.toUpperCase()) {
+          firstP.classList.add('features-eyebrow');
+        }
+      }
 
-  return featureItem;
-}
-
-/**
- * Transform header content to add proper structure
- * @param {Object} context - The rendering context
- * @returns {HTMLElement} The transformed header element
- */
-function transformHeader(context) {
-  const { col } = context;
-  const content = col.innerHTML;
-
-  // Create a wrapper for the header content
-  const headerWrapper = document.createElement('div');
-  headerWrapper.innerHTML = content;
-
-  // Look for patterns to identify eyebrow text (typically uppercase, short text)
-  const paragraphs = headerWrapper.querySelectorAll('p');
-  if (paragraphs.length > 0) {
-    const firstP = paragraphs[0];
-    const text = firstP.textContent.trim();
-
-    // If first paragraph is short and uppercase, make it an eyebrow
-    if (text.length < 50 && text === text.toUpperCase()) {
-      firstP.className = 'features-eyebrow';
+      headerDiv.appendChild(col);
     }
+
+    featuresContent.appendChild(headerDiv);
   }
 
-  return headerWrapper.innerHTML;
-}
+  // Process remaining rows as feature items
+  if (rows.length > 1) {
+    const featuresList = document.createElement('div');
+    featuresList.classList.add('features-list');
 
-export default async function decorate(block) {
-  await renderBlock(block, {
-    transformFeatureItem,
-    transformHeader,
-  });
+    // Process each remaining row as a feature item
+    for (let i = 1; i < rows.length; i += 1) {
+      const row = rows[i];
+      const cols = [...row.children];
+
+      cols.forEach((col) => {
+        const featureItem = document.createElement('div');
+        featureItem.classList.add('features-item');
+
+        // Create checkmark icon
+        const icon = document.createElement('div');
+        icon.classList.add('features-icon');
+        icon.textContent = '✓';
+
+        // Create text container
+        const textDiv = document.createElement('div');
+        textDiv.classList.add('features-text');
+        textDiv.innerHTML = col.innerHTML;
+
+        // Assemble the feature item
+        featureItem.appendChild(icon);
+        featureItem.appendChild(textDiv);
+
+        featuresList.appendChild(featureItem);
+      });
+    }
+
+    featuresContent.appendChild(featuresList);
+  }
+
+  // Replace block content
+  block.textContent = '';
+  block.appendChild(featuresContent);
 }

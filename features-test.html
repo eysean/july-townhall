@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Features Block Demo</title>
+    <title>Features Block Test</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="/blocks/features/features.css">
 </head>
@@ -33,10 +33,11 @@
     </main>
     
     <script type="module">
-        import { loadBlock } from '/scripts/aem.js';
+        import { loadBlock, decorateBlock } from './scripts/aem.js';
         
         document.addEventListener('DOMContentLoaded', async () => {
             const featuresBlock = document.querySelector('.features.block');
+            decorateBlock(featuresBlock);
             await loadBlock(featuresBlock);
         });
     </script>
