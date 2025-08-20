@@ -180,6 +180,40 @@
     ]
   },
   {
+    "id": "features-header",
+    "fields": [
+      {
+        "component": "text",
+        "name": "eyebrow",
+        "label": "Eyebrow Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Main Heading",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "feature-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Feature Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
